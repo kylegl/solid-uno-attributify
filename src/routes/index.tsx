@@ -1,44 +1,19 @@
 import { A } from "@solidjs/router";
+import AttributifyTest from "~/components/AttributifyTest";
 import Counter from "~/components/Counter";
 
 export default function Home() {
   return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-        <div class="flex justify-center items-center">
-          <span class="mr-5">Hello</span> <img class="w-12 h-12" src="https://unocss.dev/logo.svg" alt="UnoCSS logo" />!
-        </div>
-      </h1>
-      <Counter />
-      <p class="mt-8">
-        Visit{" "}
-        <a
-          href="https://solidjs.com"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          solidjs.com
-        </a>{" "}
-        to learn how to build Solid apps.
-      </p>
-      <p class="mt-2">
-        Visit{" "}
-        <a
-          href="https://unocss.dev"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          unocss.dev
-        </a>{" "}
-        to learn how to style your app.
-      </p>
-      <p class="my-4">
-        <span>Home</span>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>{" "}
-      </p>
+    <main class="text-center mx-auto text-gray-700 p-4 flex flex-col gap-6">
+      <div flex flex-col gap-4 p-2 b-1 b-zinc-400 rounded-sm>
+        <p>The component below has bg-red passed as a prop. The attribute is transformed to bg-red=true and not applied</p>
+        <AttributifyTest bg-red />
+      </div>
+
+      <div flex flex-col gap-4 p-2 b-1 b-zinc-400 rounded-sm>
+        <p mb-2>The div below is not a component and has the bg-red attribute. Works as intended</p>
+        <div bg-red p-2 b-1 b-zinc-500 rounded-sm font-bold>div element</div>
+      </div>
     </main>
   );
 }
